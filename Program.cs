@@ -28,7 +28,9 @@ namespace Kondital
                         if(double.TryParse(maxPulseStr, out mPulse))
                         {
                             infoInputted = true;
-                            Console.WriteLine($"Success!\nKondital: {Kondital.BeregnKondital(weight, rPulse, mPulse)}");
+                            double kondital = Kondital.BeregnKondital(weight, rPulse, mPulse);
+                            double iloptagelse = Kondital.BeregnIloptagelse(kondital, weight);
+                            Console.WriteLine($"Success!\nKondital: {kondital}\nIloptagelse: {iloptagelse}");
                         }
                     }
                 }
@@ -44,5 +46,10 @@ namespace Kondital
         {
             return (mPulse / rPulse) * 15.3;
         } 
+
+        public static double BeregnIloptagelse(double kondital, double weight)
+        {
+            return (kondital * weight) / 1000;
+        }
     }
 }
