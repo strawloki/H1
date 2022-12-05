@@ -37,4 +37,9 @@ namespace Kondital
 
         }
     }
+
+    class Kondital
+    {
+        
+    }
 }
